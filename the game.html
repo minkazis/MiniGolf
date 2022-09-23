@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: ivory;
+        }
+
+        #Canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(6, 97, 44);
+        }
+    </style>
+
+</head>
+
+<body>
+    <canvas id="Canvas" width=1200 height=600></canvas>
+    <script>
+        var ctx = Canvas.getContext("2d");
+        //var screen_width = Canvas.width;
+        //var screen_height = Canvas.height;
+        var x = 0;
+        var y = 0;
+        var xspeed = 3;
+        var yspeed = 3;
+        function mainloop() {
+            ctx.clearRect(0, 0, Canvas.width, Canvas.height);
+            x += xspeed;
+            y += yspeed;
+            if (x > Canvas.width - 100 || x < 0) {
+                xspeed = -xspeed;
+            }
+            if (y > Canvas.height - 100 || y < 0) {
+                yspeed = -yspeed
+            }
+
+            ctx.fillRect(x, y, 100, 100)
+
+        }
+        setInterval(mainloop, 10);
+    </script>
+</body>
+
+</html>
